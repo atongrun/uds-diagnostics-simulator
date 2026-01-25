@@ -180,23 +180,48 @@ class UDSClient {
         try {
             // 转换响应数据为Uint8Array
             let responseBytes;
+            
+            // 详细日志记录，便于调试
+            this.log('收到响应数据: ' + JSON.stringify(responseData), 'info');
+            this.log('响应数据类型: ' + typeof responseData, 'info');
+            
             if (responseData instanceof ArrayBuffer) {
+                this.log('响应数据是ArrayBuffer', 'info');
+                responseBytes = new Uint8Array(responseData);
+            } else if (Array.isArray(responseData)) {
+                this.log('响应数据是Array', 'info');
                 responseBytes = new Uint8Array(responseData);
             } else if (typeof responseData === 'string') {
-                // 如果是字符串，尝试解析
+                // 如果是字符串，直接处理
+                this.log('响应数据是字符串', 'info');
                 responseBytes = this.hexStringToUint8Array(responseData);
+            } else if (responseData instanceof Blob) {
+                this.log('响应数据是Blob', 'info');
+                // 对于Blob类型，需要转换
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const arrayBuffer = e.target.result;
+                    responseBytes = new Uint8Array(arrayBuffer);
+                    this.responseMessage.textContent = this.formatHex(responseBytes);
+                    this.parseResponse(responseBytes);
+                };
+                reader.readAsArrayBuffer(responseData);
+                return; // 异步处理，直接返回
             } else {
+                this.log('响应数据是其他类型，尝试直接转换', 'info');
                 responseBytes = new Uint8Array(responseData);
             }
             
             // 显示响应报文
             this.responseMessage.textContent = this.formatHex(responseBytes);
+            this.log('格式化后的响应报文: ' + this.formatHex(responseBytes), 'info');
             
             // 解析响应
             this.parseResponse(responseBytes);
             
         } catch (error) {
             this.log('处理响应失败: ' + error.message, 'error');
+            console.error('响应处理错误:', error);
         }
     }
     
