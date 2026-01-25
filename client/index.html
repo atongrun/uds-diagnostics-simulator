@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UDS诊断客户端</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>UDS诊断客户端</h1>
+        
+        <!-- 连接区域 -->
+        <div class="section">
+            <h2>连接设置</h2>
+            <div class="connection-controls">
+                <div class="input-group">
+                    <label for="server-ip">服务器IP:</label>
+                    <input type="text" id="server-ip" value="127.0.0.1" placeholder="输入服务器IP地址">
+                </div>
+                <div class="input-group">
+                    <label for="server-port">端口:</label>
+                    <input type="number" id="server-port" value="8888" min="1" max="65535">
+                </div>
+                <div class="button-group">
+                    <button id="connect-btn" class="btn btn-primary">连接</button>
+                    <button id="disconnect-btn" class="btn btn-secondary" disabled>断开</button>
+                </div>
+            </div>
+            <div id="connection-status" class="status">未连接</div>
+        </div>
+        
+        <!-- 诊断指令区域 -->
+        <div class="section">
+            <h2>诊断指令</h2>
+            
+            <div class="input-section">
+                <div class="input-group">
+                    <label for="service-select">服务:</label>
+                    <select id="service-select">
+                        <option value="22">22 - 读取DID</option>
+                        <option value="2E">2E - 写入DID</option>
+                    </select>
+                </div>
+                
+                <div class="input-group">
+                    <label for="did-input">DID (十六进制):</label>
+                    <input type="text" id="did-input" placeholder="例如: 1234" maxlength="4">
+                </div>
+                
+                <div class="input-group" id="data-input-group">
+                    <label for="data-input">数据 (十六进制, 空格分隔):</label>
+                    <input type="text" id="data-input" placeholder="例如: 01 02 03 04">
+                </div>
+            </div>
+            
+            <div class="button-section">
+                <button id="send-btn" class="btn btn-primary" disabled>发送指令</button>
+            </div>
+        </div>
+        
+        <!-- 响应结果区域 -->
+        <div class="section">
+            <h2>响应结果</h2>
+            <div class="result-section">
+                <div class="result-item">
+                    <label>请求报文:</label>
+                    <div id="request-message" class="message-box"></div>
+                </div>
+                <div class="result-item">
+                    <label>响应报文:</label>
+                    <div id="response-message" class="message-box"></div>
+                </div>
+                <div class="result-item">
+                    <label>响应状态:</label>
+                    <div id="response-status" class="status"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 通信日志区域 -->
+        <div class="section">
+            <h2>通信日志</h2>
+            <div id="log-container" class="log-container"></div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

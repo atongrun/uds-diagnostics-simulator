@@ -1,0 +1,282 @@
+/* 全局样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+/* 标题样式 */
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #3498db;
+}
+
+h2 {
+    color: #34495e;
+    margin-bottom: 15px;
+    font-size: 1.3em;
+    padding-left: 10px;
+    border-left: 4px solid #3498db;
+}
+
+/* 区域样式 */
+.section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #fafafa;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+}
+
+/* 输入区域 */
+.input-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 200px;
+}
+
+.input-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+    font-size: 0.9em;
+}
+
+.input-group input,
+.input-group select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+/* 按钮样式 */
+.button-group {
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+}
+
+.button-section {
+    display: flex;
+    justify-content: center;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.btn-primary {
+    background-color: #3498db;
+    color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+    background-color: #2980b9;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary {
+    background-color: #95a5a6;
+    color: white;
+}
+
+.btn-secondary:hover:not(:disabled) {
+    background-color: #7f8c8d;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* 连接控制样式 */
+.connection-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: flex-end;
+    margin-bottom: 15px;
+}
+
+/* 状态样式 */
+.status {
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.9em;
+    display: inline-block;
+}
+
+#connection-status {
+    background-color: #e74c3c;
+    color: white;
+}
+
+#connection-status.connected {
+    background-color: #2ecc71;
+}
+
+/* 结果区域 */
+.result-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.result-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.result-item label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+    font-size: 0.9em;
+}
+
+.message-box {
+    padding: 12px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9em;
+    min-height: 50px;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+/* 日志区域 */
+.log-container {
+    padding: 12px;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    border-radius: 4px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.85em;
+    height: 200px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+.log-entry {
+    margin-bottom: 5px;
+    padding: 2px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.log-timestamp {
+    color: #95a5a6;
+    margin-right: 10px;
+}
+
+.log-info {
+    color: #3498db;
+}
+
+.log-success {
+    color: #2ecc71;
+}
+
+.log-error {
+    color: #e74c3c;
+}
+
+/* 响应状态样式 */
+#response-status {
+    background-color: #f39c12;
+    color: white;
+}
+
+#response-status.success {
+    background-color: #2ecc71;
+}
+
+#response-status.error {
+    background-color: #e74c3c;
+}
+
+/* 响应状态样式 */
+#response-status {
+    margin-top: 10px;
+}
+
+/* 媒体查询 - 响应式设计 */
+@media (max-width: 768px) {
+    .container {
+        margin: 10px;
+        padding: 15px;
+    }
+    
+    .input-section {
+        flex-direction: column;
+    }
+    
+    .input-group {
+        min-width: auto;
+    }
+    
+    .connection-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .button-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .btn {
+        margin-top: 10px;
+    }
+}

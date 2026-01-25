@@ -1,0 +1,16 @@
+{
+  "name": "websocket-tcp-bridge",
+  "version": "1.0.0",
+  "description": "Simple WebSocket to TCP bridge for UDS diagnostics",
+  "main": "websocket_bridge.js",
+  "scripts": {
+    "start": "node websocket_bridge.js",
+    "install-deps": "npm install"
+  },
+  "dependencies": {
+    "ws": "^8.16.0"
+  },
+  "keywords": ["websocket", "tcp", "bridge", "uds", "diagnostics"],
+  "author": "",
+  "license": "MIT"
+}
