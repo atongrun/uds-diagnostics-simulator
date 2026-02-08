@@ -32,7 +32,8 @@ uds-diagnostics-simulator/
 │   └── CMakeLists.txt   # CMake构建脚本
 ├── websocket_bridge.js  # WebSocket-TCP桥接服务
 ├── package.json         # Node.js依赖配置
-└── README.md            # 项目说明文档
+├── README.md            # 项目说明文档
+└── docs/                # 详细文档目录
 ```
 
 ## 安装与运行
@@ -172,3 +173,16 @@ MIT License
 ## 联系方式
 
 如有问题或建议，欢迎提出Issue或Pull Request。
+
+## 项目文档
+
+项目详细文档存储在`docs`目录中，包括：
+
+- **project_plan.md** - 项目计划和实施步骤
+- **uds_protocol.md** (待创建) - UDS协议实现文档
+- **client_usage.md** (待创建) - 客户端使用指南
+- **server_deployment.md** (待创建) - 服务端部署指南
+- **api_reference.md** (待创建) - API参考文档
+- **hsm_simulator.md** (待创建) - HSM模拟器实现文档
+
+请参考这些文档获取更详细的项目信息和使用指南。

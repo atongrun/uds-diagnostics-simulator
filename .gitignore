@@ -42,3 +42,12 @@ coverage
 *.tmp
 *.temp
 .cache
+
+# Compilation outputs
+*.exe
+*.out
+*.o
+*.obj
+*.so
+*.dll
+build/
